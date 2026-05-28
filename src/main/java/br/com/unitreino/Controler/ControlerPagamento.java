@@ -21,7 +21,7 @@ public class ControlerPagamento {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ModelPagamento> buscarPorId(@PathVariable int id) {
+    public ResponseEntity<ModelPagamento> buscarPorId(@PathVariable Long id) {
         return ResponseEntity.ok(servicePagamento.buscarPorId(id));
     }
 
@@ -31,13 +31,13 @@ public class ControlerPagamento {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ModelPagamento> atualizar(@PathVariable int id,
+    public ResponseEntity<ModelPagamento> atualizar(@PathVariable Long id,
                                                      @RequestBody ModelPagamento pagamento) {
         return ResponseEntity.ok(servicePagamento.atualizar(id, pagamento));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletar(@PathVariable int id) {
+    public ResponseEntity<Void> deletar(@PathVariable Long id) {
         servicePagamento.deletar(id);
         return ResponseEntity.noContent().build();
     }

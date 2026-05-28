@@ -22,7 +22,7 @@ public class ServicePagamento {
         return repoPagamento.findAll();
     }
 
-    public ModelPagamento buscarPorId(int id) {
+    public ModelPagamento buscarPorId(Long id) {
         return repoPagamento.findById(id)
             .orElseThrow(() -> new RuntimeException("Pagamento não encontrado: " + id));
     }
@@ -36,7 +36,7 @@ public class ServicePagamento {
         return repoPagamento.save(pagamento);
     }
 
-    public ModelPagamento atualizar(int id, ModelPagamento dadosNovos) {
+    public ModelPagamento atualizar(Long id, ModelPagamento dadosNovos) {
         ModelPagamento existente = buscarPorId(id);
 
         existente.setNomeCliente(dadosNovos.getNomeCliente());
@@ -56,7 +56,7 @@ public class ServicePagamento {
         return repoPagamento.save(existente);
     }
 
-    public void deletar(int id) {
+    public void deletar(Long id) {
         buscarPorId(id); 
         repoPagamento.deleteById(id);
     }
